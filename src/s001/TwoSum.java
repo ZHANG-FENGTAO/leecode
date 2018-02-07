@@ -1,9 +1,9 @@
-package twosum;
+package s001;
 
 import java.util.HashMap;
 
 /**
- * twosum
+ * s001
  *
  * @author zft
  * @date 2018/2/6

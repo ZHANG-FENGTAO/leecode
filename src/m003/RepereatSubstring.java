@@ -1,4 +1,4 @@
-package repeatsubstring;
+package m003;
 
 /**
  * RepereatSubstring
