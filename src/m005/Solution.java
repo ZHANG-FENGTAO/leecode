@@ -1,4 +1,4 @@
-package m005;
+package src.m005;
 
 import java.util.Scanner;
 

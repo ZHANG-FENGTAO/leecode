@@ -1,4 +1,4 @@
-package s001;
+package src.s001;
 
 import java.util.HashMap;
 
@@ -53,7 +53,7 @@ public class TwoSum {
      */
     public static int[] twoSum2(int[] nums, int target) {
         int len = nums.length;
-        HashMap<Integer, Integer> map = new HashMap<>();
+        HashMap<Integer, Integer> map = new HashMap<>(nums.length);
         for (int i = 0; i < len; ++i) {
             if (map.containsKey(nums[i])) {
                 return new int[]{map.get(nums[i]), i};

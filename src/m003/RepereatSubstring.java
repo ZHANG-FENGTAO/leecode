@@ -1,4 +1,4 @@
-package m003;
+package src.m003;
 
 /**
  * RepereatSubstring

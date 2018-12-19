@@ -1,4 +1,4 @@
-package h004;
+package src.h004;
 
 /**
  * Solution
