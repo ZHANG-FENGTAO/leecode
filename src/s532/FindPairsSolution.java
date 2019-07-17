@@ -1,6 +1,9 @@
 package src.s532;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author zft
@@ -60,10 +63,82 @@ public class FindPairsSolution {
         return count;
     }
 
+//    public static void main(String[] args) {
+//        int[] nums = new int[]{1, 3, 1, 5, 4};
+//        int pairs = findPairs(nums, 0);
+//        System.out.println(pairs);
+//    }
+
+//    public static int pivotIndex(int[] nums) {
+//        if (nums.length < 3) {
+//            return -1;
+//        }
+//        int sum = Arrays.stream(nums).sum();
+//        double sumMid = sum / 2d;
+//        int left = nums[0];
+//        if (sum - left == 0) {
+//            return 0;
+//        }
+//        for (int i = 1; i < nums.length; i++) {
+//            if (left + (nums[i] / 2d) == sumMid) {
+//                return i;
+//            } else {
+//                left += nums[i];
+//            }
+//        }
+//        return -1;
+//    }
+
+    public static String shortestCompletingWord(String licensePlate, String[] words) {
+        licensePlate = licensePlate.toLowerCase().replaceAll(" ", "").replaceAll("\\d+", "");
+        int minLength = 15;
+        Map<String, Integer> map = new LinkedHashMap<>(words.length);
+        for (String word : words) {
+            String copy = word;
+            boolean flag = true;
+            for (int j = 0; j < licensePlate.length(); j++) {
+                String s = String.valueOf(licensePlate.charAt(j));
+                if (!copy.contains(s)) {
+                    flag = false;
+                    break;
+                } else {
+                    copy = copy.replaceFirst(s, "");
+                }
+            }
+            if (flag) {
+                minLength = minLength < word.length() ? minLength : word.length();
+                map.put(word, word.length());
+            }
+        }
+        Set<Map.Entry<String, Integer>> entries = map.entrySet();
+        for (Map.Entry<String, Integer> entry : entries) {
+            if (entry.getValue() <= minLength) {
+                return entry.getKey();
+            }
+        }
+        return "";
+    }
+
+
+//    public static void main(String[] args) {
+//        String[] words = {"step", "steps", "stripe", "stepple"};
+//        String licensePlate = "1s3 PSt";
+//        String s = shortestCompletingWord(licensePlate, words);
+//        System.out.println(s);
+//    }
+
+
+    public static int test(int a) {
+        if (a == 1 || a == 2) {
+            return 1;
+        } else {
+            return test(a - 1) + test(a - 2);
+        }
+    }
+
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 3, 1, 5, 4};
-        int pairs = findPairs(nums, 0);
-        System.out.println(pairs);
+        int test = test(5);
+        System.out.println(test);
     }
 
 }
